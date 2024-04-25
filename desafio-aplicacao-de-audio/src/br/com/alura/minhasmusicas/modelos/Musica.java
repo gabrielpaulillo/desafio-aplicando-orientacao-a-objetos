@@ -14,6 +14,8 @@ public class Musica extends Audio {
         System.out.println("Compositor: " + this.compositor);
         System.out.println("Álbum: " + this.album);
         System.out.println("Gênero: " + this.genero);
+        System.out.println("Visualizações: " + getTotalDeReproducoes());
+        System.out.println("Curtidas: " + getCurtidas());
     }
 
     public String getArtista() {
@@ -46,5 +48,14 @@ public class Musica extends Audio {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    @Override
+    public int getClassificacao() {
+        if (getTotalDeReproducoes() > 200) {
+            return 10;
+        } else {
+            return 8;
+        }
     }
 }

@@ -13,6 +13,8 @@ public class Podcast extends Audio {
         System.out.println("Convidados: " + this.convidados);
         System.out.println("Horário de início: " + this.horarioDeInicio);
         System.out.println("Duração: " + getDuracao() + " minutos");
+        System.out.println("Visualizações: " + getTotalDeReproducoes());
+        System.out.println("Curtidas: " + getCurtidas());
     }
 
     public String getNome() {
@@ -45,5 +47,14 @@ public class Podcast extends Audio {
 
     public void setHorarioDeInicio(String horarioDeInicio) {
         this.horarioDeInicio = horarioDeInicio;
+    }
+
+    @Override
+    public int getClassificacao() {
+        if (getCurtidas() > 7000) {
+            return 10;
+        } else {
+            return 7;
+        }
     }
 }
